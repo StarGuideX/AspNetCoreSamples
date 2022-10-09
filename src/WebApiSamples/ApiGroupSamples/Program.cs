@@ -11,7 +11,7 @@ namespace ApiGroupSamples
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerGenConfigurationOptions>();
+            //builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerGenConfigurationOptions>();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
@@ -22,11 +22,11 @@ namespace ApiGroupSamples
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
-                    var provider = app.Services.GetRequiredService<IApiDescriptionGroupCollectionProvider>();
-                    foreach (var description in provider.ApiDescriptionGroups.Items)
-                    {
-                        c.SwaggerEndpoint($"../swagger/{description.GroupName}/swagger.json", $"ApiVersionSamples " + description.GroupName.ToUpperInvariant());
-                    }
+                    //var provider = app.Services.GetRequiredService<IApiDescriptionGroupCollectionProvider>();
+                    //foreach (var description in provider.ApiDescriptionGroups.Items)
+                    //{
+                    //    c.SwaggerEndpoint($"../swagger/{description.GroupName}/swagger.json", $"ApiVersionSamples " + description.GroupName.ToUpperInvariant());
+                    //}
                 });
             }
 
